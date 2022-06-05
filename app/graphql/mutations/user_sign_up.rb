@@ -1,4 +1,4 @@
-class Mutations::UserCreate < Mutations::BaseMutation
+class Mutations::UserSignUp < Mutations::BaseMutation
   description 'Create a new User to Task App'
 
   argument :first_name, String, required: false
