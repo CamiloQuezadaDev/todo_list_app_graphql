@@ -18,5 +18,13 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :tasks, [Types::TaskType], null: true do
+      argument :search, String, required: false
+    end
+
+    def tasks search:nil
+      return context[:current_user]&.tasks(search: search)
+    end
   end
 end

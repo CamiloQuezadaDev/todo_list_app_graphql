@@ -49,7 +49,7 @@ class User < ApplicationRecord
     end
 
     if search.present?
-      records.by_search(search)
+      records = records.by_search(search)
     end
 
     records = records.pagination(limit, offset)
