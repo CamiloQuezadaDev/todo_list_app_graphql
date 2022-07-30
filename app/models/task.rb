@@ -34,7 +34,6 @@ class Task < ApplicationRecord
   scope :by_search, -> (value) { where('name LIKE ?', "%#{value}%")}
 
   #Callbacks
-  before_validation :attributes_strip
   before_create :generate_slug
   before_update :generate_slug, if: :is_name_changed?
 

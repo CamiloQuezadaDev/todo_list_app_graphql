@@ -36,9 +36,11 @@ class User < ApplicationRecord
   # Callbacks
   before_create :generate_authentication_token
 
-  before_validation :attributes_strip
-
   #instance methods
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def tasks offset:0, limit:10000, state:nil, search:nil
     records = super()
 
